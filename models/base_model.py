@@ -1,7 +1,6 @@
 #basemodel class
 import uuid
 from datetime import datetime
-import models
 
 class BaseModel:
     """"""
@@ -21,11 +20,11 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.now()
-        models.storage.save()
+        
 
     def to_dict(self):
         new_dict = self.__dict__
-        new_dict['__class__'] == self.__class__.__name__
-        new_dict['__created_at__'] == self.created_at.isoformat()
-        new_dict['__updated_at__'] == self.updated_at.isoformat()
+        new_dict['__class__'] = self.__class__.__name__
+        new_dict['__created_at__'] = self.created_at.isoformat()
+        new_dict['__updated_at__'] = self.updated_at.isoformat()
         return new_dict

@@ -17,7 +17,7 @@ class HBNBCommand(cmd.Cmd):
     
     def Empty_line(self):
         """"""
-        return
+        pass
     def do_create(self, args):
         """"""
         n = len(args)
