@@ -1,5 +1,4 @@
-Certainly! Here's a reformatted version for your README:
-
+My README
 ---
 
 # HBNB - The Console
