@@ -1,7 +1,6 @@
 #basemodel class
 import uuid
 from datetime import datetime
-#from models import storage
 
 
 class BaseModel:
