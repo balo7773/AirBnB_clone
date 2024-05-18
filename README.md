@@ -9,6 +9,7 @@ This repository is all about building an AirBnB_clone using console(cmd module) 
 
 ### 0: Authors/README File
 - `AUTHORS`:   BALOGUN ABDULMALIK
+- `AUTHORS`:   EMMANUEL OLUWASEYI
 
 ### 1: Pycodestyle
 - All code is pycodstyle compliant
