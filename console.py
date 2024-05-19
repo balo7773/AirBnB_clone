@@ -174,7 +174,7 @@ class HBNBCommand(cmd.Cmd):
         try:
             attr = eval(_value)
             setattr(storage.all()[key], _key, attr)
-        except (SyntaxError, NameError): 
+        except (SyntaxError, NameError):
             print("** value missing **")
         storage.save()
 
