@@ -222,14 +222,11 @@ class HBNBCommand(cmd.Cmd):
                        "Review"
                        ]
 
-        #it will prints all the instance based on class name
         if args_line[0] in class_names and args_line[1].endswith("all()"):
             self.do_all(args_line[0])
-        # counting the instance based on the class
         elif args_line[0] in class_names and args_line[1].endswith("count()"):
             self.do_count(args_line[0])
         elif args_line[0] in class_names and args_line[1].startswith("show"):
-            # show a dictionary representation based on the id passed
             striped = args_line[1].strip("show(\"").strip("\")")
             key = "{}.{}".format(args_line[0], striped)
             if key not in storage.all():
@@ -238,7 +235,6 @@ class HBNBCommand(cmd.Cmd):
             print(storage.all()[key])
 
         elif args_line[0] in class_names and args_line[1].startswith("destroy"):
-            # delete an instance based on the id passed
             striped = args_line[1].strip("destroy(\"").strip("\")")
             key = "{}.{}".format(args_line[0], striped)
             if key not in storage.all():
