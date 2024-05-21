@@ -13,6 +13,7 @@ class TestAmenity(unittest.TestCase):
     def setUp(self):
         """Set up test method"""
         self.amenity = Amenity()
+        
 
     def test_instance_creation(self):
         """Test instance creation"""
