@@ -39,7 +39,7 @@ class TestHBNBCommand(unittest.TestCase):
         """Test create command with invalid class name"""
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.cli.onecmd("create MyModel")
-            self.assertEqual(fake_out.getvalue(), "** class name doesn't exist **\n")
+            self.assertEqual(fake_out.getvalue(), "** classname no exist **\n")
 
     def test_show_missing_class(self):
         """Test show command with missing class name"""
@@ -51,13 +51,13 @@ class TestHBNBCommand(unittest.TestCase):
         """Test show command with invalid class name"""
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.cli.onecmd("show MyModel")
-            self.assertEqual(fake_out.getvalue(), "** class name doesn't exist **\n")
+            self.assertEqual(fake_out.getvalue(), "** classname no exist **\n")
 
     def test_show_missing_id(self):
         """Test show command with missing id"""
         with patch('sys.stdout', new=StringIO()) as fake_out:
             self.cli.onecmd("show BaseModel")
-            self.assertEqual(fake_out.getvalue(), "** instance id missing **\n")
+            self.assertEqual(fake_out.getvalue(), "** inst id missing **\n")
 
     def test_show_no_instance(self):
         """Test show command with no instance found"""
