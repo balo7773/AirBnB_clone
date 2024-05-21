@@ -189,6 +189,30 @@ class HBNBCommand(cmd.Cmd):
                 count += 1
         print(count)
 
+    def handle_class_methods(self, *args):
+        """Class Methods
+        <cls>.all(), <cls>.show() etc
+        """
+
+        methods = ("all(", "show(", "count(", "create(")
+        try:
+            value = eval(arg)
+            for i in methods:
+                if i in args:
+                    print(value)
+                    break
+            return
+        except AttributeError:
+            print("** invalid method **")
+        except TypeError as b:
+            field = b.args[0].split()[-1].replace("_", " ")
+            field = field.strip("'")
+            print(f"** {field} missing **")
+        except Exception as e:
+            print("** invalid syntax **")
+            pass
+        
+    
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
