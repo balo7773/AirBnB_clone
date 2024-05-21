@@ -212,52 +212,48 @@ class HBNBCommand(cmd.Cmd):
             print("** invalid syntax **")
             pass
         
-    def default(self, line: str) -> None:
+    def default(self, args: str) -> None:
         """Default Argument passed to the cmdline"""
-        # splits the command line argument
-        args = line.split(".")
-        # Checks if the arg[0] is in the file storage and if args[1] ends with
+        args_line = args.split(".")
 
-        # all Available Instance
+        #Available Instance
         class_names = ['User', 'BaseModel',
                        "Place", "City", "Amenity", "State",
                        "Review"
                        ]
 
-        # prints all the instance based on the class name
-        if args[0] in class_names and args[1].endswith("all()"):
-            self.do_all(args[0])
+        #it will prints all the instance based on class name
+        if args_line[0] in class_names and args_line[1].endswith("all()"):
+            self.do_all(args_line[0])
         # counting the instance based on the class
-        elif args[0] in class_names and args[1].endswith("count()"):
-            self.do_count(args[0])
-        elif args[0] in class_names and args[1].startswith("show"):
+        elif args_line[0] in class_names and args_line[1].endswith("count()"):
+            self.do_count(args_line[0])
+        elif args_line[0] in class_names and args_line[1].startswith("show"):
             # show a dictionary representation based on the id passed
-            striped = args[1].strip("show(\"").strip("\")")
-            key = "{}.{}".format(args[0], striped)
+            striped = args_line[1].strip("show(\"").strip("\")")
+            key = "{}.{}".format(args_line[0], striped)
             if key not in storage.all():
                 print('** no instance found **')
                 return
             print(storage.all()[key])
 
-        elif args[0] in class_names and args[1].startswith("destroy"):
+        elif args_line[0] in class_names and args_line[1].startswith("destroy"):
             # delete an instance based on the id passed
-            striped = args[1].strip("destroy(\"").strip("\")")
-            key = "{}.{}".format(args[0], striped)
+            striped = args_line[1].strip("destroy(\"").strip("\")")
+            key = "{}.{}".format(args_line[0], striped)
             if key not in storage.all():
                 print('** no instance found **')
             del storage.all()[key]
             storage.save()
 
-        elif args[0] in class_names and args[1].startswith("update"):
-            striped = args[1].strip("update(\"").strip("\)")
+        elif args_line[0] in class_names and args_line[1].startswith("update"):
+            striped = args_line[1].strip("update(\"").strip("\)")
             stripped_value = striped.split(",")
 
-            # checks if it meets all expectations
             if len(stripped_value) < 3:
                 print("** value missing **")
                 return
 
-            # stripped class_id, class_key, class_attr
             class_id = stripped_value[0].strip("\"")
             class_key = stripped_value[1]
             class_attr = stripped_value[2]
