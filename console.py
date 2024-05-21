@@ -212,7 +212,7 @@ class HBNBCommand(cmd.Cmd):
             print("** invalid syntax **")
             pass
         
-        def default(self, line: str) -> None:
+    def default(self, line: str) -> None:
         """Default Argument passed to the cmdline"""
         # splits the command line argument
         args = line.split(".")
