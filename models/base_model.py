@@ -38,6 +38,9 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
 
+        valid_keys = {'id', 'created_at', 'updated_at'}
+        fmt = '%Y-%m-%dT%H:%M:%S.%f'
+        
     def __str__(self):
         """
         Return a string representation of the instance.

@@ -178,6 +178,16 @@ class HBNBCommand(cmd.Cmd):
         except (SyntaxError, NameError):
             print("** value missing **")
         storage.save()
+    
+    def do_count(self, args):
+        """Count the instance Created"""
+        count = 0
+        for key in storage.all():
+            args_line = key.split(".")
+            if args == args_line[0]:
+                # if value["__class__"] == line:
+                count += 1
+        print(count)
 
 
 if __name__ == '__main__':

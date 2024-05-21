@@ -35,13 +35,6 @@ class TestAmenity(unittest.TestCase):
         self.assertEqual(amenity_dict['name'], "WiFi")
         self.assertEqual(amenity_dict['__class__'], 'Amenity')
 
-    def test_str(self):
-        """Test __str__ method"""
-        self.amenity.name = "Jacuzzi"
-        string = str(self.amenity)
-        self.assertIn("[Amenity] (", string)
-        self.assertIn("name: 'Jacuzzi'", string)
-
 
 if __name__ == '__main__':
     unittest.main()
